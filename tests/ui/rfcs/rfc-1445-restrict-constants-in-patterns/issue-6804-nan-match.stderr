@@ -1,0 +1,65 @@
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:14:9
+   |
+LL |         NAN => {},
+   |         ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:19:10
+   |
+LL |         [NAN, _] => {},
+   |          ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:24:9
+   |
+LL |         C => {},
+   |         ^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:30:9
+   |
+LL |         NAN..=1.0 => {},
+   |         ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:31:16
+   |
+LL |         -1.0..=NAN => {},
+   |                ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:32:9
+   |
+LL |         NAN.. => {},
+   |         ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: cannot use NaN in patterns
+  --> $DIR/issue-6804-nan-match.rs:33:11
+   |
+LL |         ..NAN => {},
+   |           ^^^
+   |
+   = note: NaNs compare inequal to everything, even themselves, so this pattern would never match
+   = help: try using the `is_nan` method instead
+
+error: aborting due to 7 previous errors
+
