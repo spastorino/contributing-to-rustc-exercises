@@ -1,0 +1,6 @@
+# Includes one of the default files in src/bootstrap/defaults
+profile = "compiler"
+change-id = 131075
+
+[rust]
+debug = true
