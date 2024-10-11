@@ -16,11 +16,9 @@ use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 
 use build_helper::ci::CiEnv;
-use build_helper::git::get_closest_merge_commit;
 
 use crate::core::builder::{Builder, RunConfig, ShouldRun, Step};
 use crate::core::config::{Config, TargetSelection};
-use crate::utils::channel;
 use crate::utils::exec::command;
 use crate::utils::helpers::{
     self, HashStamp, exe, get_clang_cl_resource_dir, output, t, unhashed_basename, up_to_date,
@@ -157,7 +155,8 @@ pub fn prebuilt_llvm_config(
 }
 
 /// This retrieves the LLVM sha we *want* to use, according to git history.
-pub(crate) fn detect_llvm_sha(config: &Config, is_git: bool) -> String {
+pub(crate) fn detect_llvm_sha(_config: &Config, _is_git: bool) -> String {
+    /*
     let llvm_sha = if is_git {
         get_closest_merge_commit(Some(&config.src), &config.git_config(), &[
             config.src.join("src/llvm-project"),
@@ -181,6 +180,9 @@ pub(crate) fn detect_llvm_sha(config: &Config, is_git: bool) -> String {
     }
 
     llvm_sha
+    */
+
+    String::from("85e2f55d8291e643b5b4c98ee09db301379d63a6")
 }
 
 /// Returns whether the CI-found LLVM is currently usable.

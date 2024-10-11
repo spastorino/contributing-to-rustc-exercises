@@ -807,8 +807,8 @@ download-rustc = false
         } else {
             &self.stage0_metadata.config.artifacts_server
         };
-        let version = self.artifact_version_part(llvm_sha);
-        let filename = format!("rust-dev-{}-{}.tar.xz", version, self.build.triple);
+        /* let version = self.artifact_version_part(llvm_sha); */
+        let filename = format!("rust-dev-nightly-{}.tar.xz", self.build.triple);
         let tarball = rustc_cache.join(&filename);
         if !tarball.exists() {
             let help_on_error = "ERROR: failed to download llvm from ci
